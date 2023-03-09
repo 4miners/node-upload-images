@@ -31,7 +31,7 @@ try {
   const imageData = fs.readFileSync('/test.png');
   let { directLink } = await service.uploadFromBinary(imageData, 'test.png');
 
-  console.log(directUrl);
+  console.log(directLink);
 } catch (error) {}
 ```
 
@@ -45,7 +45,7 @@ const service = new ImageUploadService('new.fastpic.org');
 try {
   let { directLink } = await service.uploadFromUrl('./test.png');
 
-  console.log(directUrl);
+  console.log(directLink);
 } catch (error) {}
 ```
 
@@ -61,7 +61,7 @@ try {
     'https://example.com/image.png'
   );
 
-  console.log(directUrl);
+  console.log(directLink);
 } catch (error) {}
 ```
 
