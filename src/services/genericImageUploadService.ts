@@ -3,6 +3,7 @@ import { URL } from 'url';
 import path from 'path';
 import crypto from 'crypto';
 import FormData from 'form-data';
+import * as fs from 'fs';
 
 export type TGenericImageUploadResponse = {
   directLink: string;
@@ -12,6 +13,11 @@ export interface IGenericImageUploadService {
   uploadFromBinary(
     imageData: Buffer,
     filename: string
+  ): Promise<TGenericImageUploadResponse>;
+
+  uploadFromFile(
+    filePath: string,
+    filename: string | undefined
   ): Promise<TGenericImageUploadResponse>;
 
   uploadFromUrl(
@@ -57,6 +63,15 @@ export abstract class GenericImageUploadService
       filename,
       extension
     };
+  }
+
+  async uploadFromFile(
+    filePath: string,
+    filename: string | undefined
+  ): Promise<TGenericImageUploadResponse> {
+    const imageData = fs.readFileSync(filePath);
+    filename ??= filePath.split('/').pop() || 'unknown';
+    return this.uploadFromBinary(imageData, filename);
   }
 
   protected async uploadFormData(form: FormData) {
