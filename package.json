@@ -1,7 +1,7 @@
 {
   "name": "node-upload-images",
   "version": "1.0.0",
-  "description": "",
+  "description": "Library for uploading images to popular image hosting services, uses Node and Axios.",
   "main": "build/index.js",
   "scripts": {
     "start:dev": "npx nodemon",
@@ -21,7 +21,13 @@
   },
   "keywords": [
     "image",
-    "upload"
+    "upload",
+    "node",
+    "axios",
+    "fastpic.org",
+    "pixhost.to",
+    "postimages.org",
+    "upload.cc"
   ],
   "author": "Mariusz Serek",
   "license": "MIT",
