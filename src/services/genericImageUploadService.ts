@@ -9,6 +9,11 @@ export type TGenericImageUploadResponse = {
 };
 
 export interface IGenericImageUploadService {
+  uploadFromBinary(
+    imageData: Buffer,
+    filename: string
+  ): Promise<TGenericImageUploadResponse>;
+
   uploadFromUrl(
     url: string,
     randomFilename: boolean

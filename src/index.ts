@@ -33,6 +33,13 @@ export class ImageUploadService implements IGenericImageUploadService {
     this.uploader = new ServiceClass();
   }
 
+  async uploadFromBinary(
+    imageData: Buffer,
+    filename: string
+  ): Promise<TGenericImageUploadResponse> {
+    return this.uploader.uploadFromBinary(imageData, filename);
+  }
+
   async uploadFromUrl(
     url: string,
     randomFilename: boolean
