@@ -4,12 +4,15 @@ import {
   TGenericImageUploadResponse
 } from './services/genericImageUploadService';
 
+import { PostimagesORG } from './services/postimagesORG';
 import { NewFastpicORG } from './services/newFastpicORG';
 
 export type ImageUploadServiceName =
+  | 'postimages.org'
   | 'new.fastpic.org';
 
 const services = {
+  'postimages.org': PostimagesORG,
   'new.fastpic.org': NewFastpicORG
 };
 
