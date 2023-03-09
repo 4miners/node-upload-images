@@ -16,9 +16,10 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      - name: Clean install packages
+        run: npm ci
       - name: Run Tests
-      - run: npm test
+        run: npm test
       - name: Build
         run: npm run build
       - name: Publish to npm
