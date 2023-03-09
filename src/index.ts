@@ -42,7 +42,7 @@ export class ImageUploadService implements IGenericImageUploadService {
 
   async uploadFromFile(
     filePath: string,
-    filename: string | undefined
+    filename?: string
   ): Promise<TGenericImageUploadResponse> {
     return this.uploader.uploadFromFile(filePath, filename);
   }

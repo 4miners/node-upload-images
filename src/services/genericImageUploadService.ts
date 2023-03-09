@@ -17,7 +17,7 @@ export interface IGenericImageUploadService {
 
   uploadFromFile(
     filePath: string,
-    filename: string | undefined
+    filename?: string
   ): Promise<TGenericImageUploadResponse>;
 
   uploadFromUrl(
@@ -67,7 +67,7 @@ export abstract class GenericImageUploadService
 
   async uploadFromFile(
     filePath: string,
-    filename: string | undefined
+    filename?: string
   ): Promise<TGenericImageUploadResponse> {
     const imageData = fs.readFileSync(filePath);
     filename ??= filePath.split('/').pop() || 'unknown';
