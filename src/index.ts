@@ -5,16 +5,19 @@ import {
 } from './services/genericImageUploadService';
 
 import { PostimagesORG } from './services/postimagesORG';
+import { UploadCC } from './services/uploadCC';
 import { PixhostTO } from './services/pixhostTO';
 import { NewFastpicORG } from './services/newFastpicORG';
 
 export type ImageUploadServiceName =
   | 'postimages.org'
+  | 'upload.cc'
   | 'pixhost.to'
   | 'new.fastpic.org';
 
 const services = {
   'postimages.org': PostimagesORG,
+  'upload.cc': UploadCC,
   'pixhost.to': PixhostTO,
   'new.fastpic.org': NewFastpicORG
 };
