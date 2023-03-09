@@ -91,7 +91,10 @@ export abstract class GenericImageUploadService
     };
   }
 
-  async uploadFromUrl(url: string, randomFilename = false) {
+  async uploadFromUrl(
+    url: string,
+    randomFilename = false
+  ): Promise<TGenericImageUploadResponse> {
     let { data, filename, extension } = await this._downloadBinary(url);
     if (randomFilename) filename = this.generateRandomString(6) + extension;
     return this.uploadFromBinary(data, filename);
